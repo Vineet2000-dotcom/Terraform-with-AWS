@@ -1,16 +1,16 @@
-name : First workflow
-on : push
+name: First workflow
+
+on: push
+
 jobs:
-    first_job:
-          runs-on: ubuntu-latest
-          steps:
-          - name : Welcome msg
-            run: "My first job"
-          
-          - name: List files
-            run: ls
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome msg
+        run: echo "My first job"
 
-          - name: Read file
-            run: cat
+      - name: List files
+        run: ls
 
-          
+      - name: Read file
+        run: cat README.md
