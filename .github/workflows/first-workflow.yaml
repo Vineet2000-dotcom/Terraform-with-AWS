@@ -9,8 +9,8 @@ jobs:
       - name: Welcome msg
         run: echo "My first job"
 
-      - name: List files
+      - name: Running shell script
         run: | 
-             ls
-             touch vineet.txt
+             chmod +x app.sh
+             ./app.sh
 
