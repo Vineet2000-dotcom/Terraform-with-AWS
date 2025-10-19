@@ -1,11 +1,22 @@
-#!/bin/bash
+name: First workflow
 
+on: push
 
-echo "Hello, Vineet!"
-echo "Listing all files in the current directory..."
-ls
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout your repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-echo "Current date and time:"
-date
+      # Step 2: Print welcome message
+      - name: Welcome msg
+        run: echo "My first job"
 
-echo "Script executed successfully!"
+      # Step 3: Run shell script
+      - name: Running shell script
+        run: |
+          chmod +x app.sh
+          ./app.sh
+
