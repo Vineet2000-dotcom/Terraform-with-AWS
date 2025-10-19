@@ -1,2 +1,2 @@
-# Terraform-with-AWS
-Hosted a website on AWS S3 with Terraform
+# Learning Github Actions
+Hey there i am learning github Actions.
