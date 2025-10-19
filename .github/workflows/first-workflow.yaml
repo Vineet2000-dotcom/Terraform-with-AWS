@@ -6,11 +6,15 @@ jobs:
   first_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Welcome msg
-        run: echo "My first job"
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Running shell script
-        run: | 
-             chmod +x ../app.sh
-             ./app.sh
+      - name: Show all files (debug)
+        run: ls -R
+
+      - name: Run shell script
+        run: |
+          chmod +x app.sh
+          ./app.sh
+
 
