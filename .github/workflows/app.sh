@@ -17,6 +17,6 @@ jobs:
       # Step 3: Run shell script
       - name: Running shell script
         run: |
-          chmod +x app.sh
+          chmod +x ./app.sh
           ./app.sh
 
