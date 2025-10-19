@@ -10,5 +10,7 @@ jobs:
         run: echo "My first job"
 
       - name: List files
-        run: ls
+        run: | 
+             ls
+             touch vineet.txt
 
