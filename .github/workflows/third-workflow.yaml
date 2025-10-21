@@ -1,0 +1,41 @@
+name: Upload and Download Artifacts Example
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create a dummy build file
+        run: |
+          mkdir -p build
+          echo "This is a sample artifact file" > build/output.txt
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-build-artifact       # name of the artifact
+          path: build/output.txt        # path to the file/folder
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: my-build-artifact       # must match upload name
+          path: ./downloaded-artifact   # where to place it
+
+      - name: Display artifact content
+        run: |
+          echo "Listing downloaded artifact:"
+          ls -l ./downloaded-artifact
+          echo "Content of the file:"
+          cat ./downloaded-artifact/output.txt
